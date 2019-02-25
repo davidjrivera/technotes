@@ -27,10 +27,10 @@ How is VPC Peering used:
 ::
 
 (python36) [drivera@scrappy-aws ~]$  aws ec2 create-vpc-peering-connection --vpc-id vpc-0fdf62bxxx6 --peer-vpc-id vpc-0e49exxxxx44 --peer-owner-id 1234567892890
-{
-    "VpcPeeringConnection": {
-        "AccepterVpcInfo": {
-            "OwnerId": "12345678990",
+ {
+     "VpcPeeringConnection": {
+         "AccepterVpcInfo": {
+             "OwnerId": "12345678990",
             "VpcId": "vpc-0e49e4xxxxxxx0d7",
             "Region": "us-west-2"
         },
@@ -58,7 +58,7 @@ How is VPC Peering used:
         "Tags": [],
         "VpcPeeringConnectionId": "pcx-0dexxxxxxxxxx9"
     }
-}
+ }
 
 
 - accept peering connection from target account:
