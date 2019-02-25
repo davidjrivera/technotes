@@ -84,7 +84,7 @@ How is VPC Peering used:
 ::
 
 
- (python36) [da@scrap ~]$  aws ec2 create-route --route-table-id rtblkjh876y897xxxx5yb --destination-cidr-block 10.10.4.0/24 --vpc-peering-connection-id "pcx-0de31xxxxxxxx49"
+ (python36) [da@scrap ~]$  aws ec2 create-route --route-table-id rtblkjh87xxxx5yb --destination-cidr-block 10.10.4.0/24 --vpc-peering-connection-id "pcx-0de31xxxxxxxx49"
   {
     "Return": true
  }
@@ -96,50 +96,51 @@ Updating Security Groups
 - ingress security group
 ::
 
- (python36) [da@scrap ~]$ aws ec2 authorize-security-group-ingress --group-id sg-0fd4f560815013a9f --protocol tcp  --source-group sg-0f59087a6a82ac871
+ (python36) [da@scrap ~]$ aws ec2 authorize-security-group-ingress --group-id sg-7070707070707 --protocol tcp  --source-group sg-01010101010
  (python36) [da@scrap ~]$ aws-whoami
  {
-    "UserId": "AROAJ2PFDMOSE2JEGS7AY:da@ait-poc-OrgAdmin",
-    "Account": "217985836260",
-    "Arn": "arn:aws:sts::217985836260:assumed-role/OrgAdmin/da@ait-poc-OrgAdmin"
+    "UserId": "AROAJ2PFDMAY:da@poc",
+    "Account": "1222233333",
+    "Arn": "arn:aws:sts::232323232:assumed-role//da@poc"
 
 
 
- (python36) [da@scrap ~]$  aws ec2 authorize-security-group-ingress --group-id sg-0f59087a6a82ac871 --protocol tcp  --source-group sg-0fd4f560815013a9f
+ (python36) [da@scrap ~]$  aws ec2 authorize-security-group-ingress --group-id sg-01010101010 --protocol tcp  --source-group sg-7070707070707
  (python36) [da@scrap ~]$ aws-whoami
  {
-    "UserId": "AROAJU3BMOJ5H7RDO6GIM:da@ait-training-OrgAdmin",
-    "Account": "071826132890",
-    "Arn": "arn:aws:sts::071826132890:assumed-role/OrgAdmin/da@ait-training-OrgAdmin"
+    "UserId": "AROAJU3BMOM:da@training",
+    "Account": "6986787678",
+    "Arn": "arn:aws:sts::7070707070707:assumed-role//da@training"
  }
  (python36) [da@scrap ~]$
 
 
  (python36) [da@scrap ~]$ aws-whoami
  {
-    "UserId": "AROAJU3BMOJ5H7RDO6GIM:da@ait-training-OrgAdmin",
-    "Account": "071826132890",
-    "Arn": "arn:aws:sts::071826132890:assumed-role/OrgAdmin/da@ait-training-OrgAdmin"
+    "UserId": "AROAJU3BMOJ5H7RDO6GIM:da@training",
+    "Account": "6986787678",
+    "Arn": "arn:aws:sts::07070707070:assumed-role//da@training"
  } 
 
 
- (python36) [da@scrap ~]$ aws ec2 describe-security-group-references --group-id sg-0f59087a6a82ac871
+ (python36) [da@scrap ~]$ aws ec2 describe-security-group-references --group-id sg-01010101010
  {
     "SecurityGroupReferenceSet": [
         {
-            "GroupId": "sg-0f59087a6a82ac871",
+            "GroupId": "sg-01010101010",
             "ReferencingVpcId": "vpc-0fdf62b63d46e078d",
-            "VpcPeeringConnectionId": "pcx-0de31d992fae2b549"
+            "VpcPeeringConnectionId": "pcx-7653245678"
         }
     ]
 
- (python36) [da@scrap ~]$ aws-assume-role ait-poc-OrgAdmin                                                        (python36) [da@scrap ~]$ aws ec2 describe-security-group-references --group-id sg-0fd4f560815013a9f
+ (python36) [da@scrap ~]$ aws-assume-role poc                                                        (python36) [da@scrap ~]$ aws ec2 describe-security-group-references --group-id sg-7070707070707
  {
     "SecurityGroupReferenceSet": [
         {
-            "GroupId": "sg-0fd4f560815013a9f",
-            "ReferencingVpcId": "vpc-0e49e447c5f0f20d7",
-            "VpcPeeringConnectionId": "pcx-0de31d992fae2b549"
+            "GroupId": "sg-7070707070707",
+            "ReferencingVpcId": "vpc-0e49e4470d7",
+     
+            "VpcPeeringConnectionId": "pcx-7653245678"
         }
     ]
  }
@@ -151,19 +152,19 @@ Updating Security Groups
 ::
 
 
- (python36) [da@scrap ~]$ aws ec2 authorize-security-group-egress --group-id sg-0fd4f560815013a9f  --ip-permissions IpProtocol=tcp,FromPort=22,ToPort=22,,UserIdGroupPairs=[{GroupId=sg-0f59087a6a82ac871}]
+ (python36) [da@scrap ~]$ aws ec2 authorize-security-group-egress --group-id sg-7070707070707  --ip-permissions IpProtocol=tcp,FromPort=22,ToPort=22,,UserIdGroupPairs=[{GroupId=sg-01010101010}]
  (python36) [da@scrap ~]$ aws-whoami
  {
-    "UserId": "AROAJ2PFDMOSE2JEGS7AY:da@ait-poc-OrgAdmin",
-    "Account": "217985836260",
-    "Arn": "arn:aws:sts::217985836260:assumed-role/OrgAdmin/da@ait-poc-OrgAdmin"
+    "UserId": "AROAJ2JEGS7AY:da@poc",
+    "Account": "1222233333",
+    "Arn": "arn:aws:sts::232323232:assumed-role//da@poc"
  }
- (python36) [da@scrap ~]$ aws-assume-role ait-training-OrgAdmin                                                   (python36) [da@scrap ~]$ aws ec2 authorize-security-group-egress --group-id sg-0f59087a6a82ac871  --ip-permissions IpProtocol=tcp,FromPort=22,ToPort=22,,UserIdGroupPairs=[{GroupId=sg-0fd4f560815013a9f}]
+ (python36) [da@scrap ~]$ aws-assume-role training                                                   (python36) [da@scrap ~]$ aws ec2 authorize-security-group-egress --group-id sg-01010101010  --ip-permissions IpProtocol=tcp,FromPort=22,ToPort=22,,UserIdGroupPairs=[{GroupId=sg-7070707070707}]
  (python36) [da@scrap ~]$ aws-whoami
  {
-    "UserId": "AROAJU3BMOJ5H7RDO6GIM:da@ait-training-OrgAdmin",
-    "Account": "071826132890",
-    "Arn": "arn:aws:sts::071826132890:assumed-role/OrgAdmin/da@ait-training-OrgAdmin"
+    "UserId": "AROAJDO6GIM:da@training",
+    "Account": "6986787678",
+    "Arn": "arn:aws:sts::07179797970:assumed-role//da@training"
  }
 
 
