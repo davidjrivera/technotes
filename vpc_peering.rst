@@ -165,3 +165,34 @@ Updating Security Groups
     "Account": "071826132890",
     "Arn": "arn:aws:sts::071826132890:assumed-role/OrgAdmin/drivera@ait-training-OrgAdmin"
  }
+
+
+
+ Overview of results:
+---------------------
+::
+
+
+david-key-pair-default.pem  drivera-ait-poc-key-default.pem  ec2-user@52.89.180.58  kms-key-ait-poc
+[drivera@scrappy-aws keys]$ ssh ait@54.191.110.231
+ait@54.191.110.231's password:
+Last login: Mon Feb 25 21:54:52 2019 from scrappy-aws.ucop.edu
+
+       __|  __|_  )
+       _|  (     /   Amazon Linux 2 AMI
+      ___|\___|___|
+
+https://aws.amazon.com/amazon-linux-2/
+9 package(s) needed for security, out of 17 available
+Run "sudo yum update" to apply all updates.
+[ait@ip-192-100-1-191 ~]$ ls
+
+[ait@ip-192-100-1-191 ~]$
+
+[ait@ip-192-100-1-191 ~]$ scp ait@10.0.0.153:~/test_file .
+ait@10.0.0.153's password:
+test_file                                                                                                  100%   38    30.5KB/s   00:00
+[ait@ip-192-100-1-191 ~]$ ls
+test_file
+[ait@ip-192-100-1-191 ~]$
+
