@@ -70,9 +70,8 @@ How is VPC Peering used:
 - update route on peer 
 ::
 
-- peering-update-route-on-peer
 
-- While in the account that has VPC2:
+ While in the account that has VPC2:
  (python36) [drivera@scrappy-aws ~]$  aws ec2 create-route --route-table-id rtb-06c13dxxxxxxxx2b --destination-cidr-block 192.100.1.0/24 --vpc-peering-connection-id "pcx-0de31xxxxxxxx49"
  {
     "Return": true
@@ -84,6 +83,7 @@ How is VPC Peering used:
 - So to setup VPC2 to be able to communicate back we do:
 
 - While in the account that has VPC1:
+::
  (python36) [drivera@scrappy-aws ~]$  aws ec2 create-route --route-table-id rtblkjh876y897xxxx5yb --destination-cidr-block 10.10.4.0/24 --vpc-peering-connection-id "pcx-0de31xxxxxxxx49"
   {
     "Return": true
