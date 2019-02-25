@@ -26,7 +26,7 @@ How is VPC Peering used:
 - Setting up peering of VPC01 to VPC02
 ::
 
-(python36) [drivera@scrappy-aws ~]$  aws ec2 create-vpc-peering-connection --vpc-id vpc-0fdf62bxxx6 --peer-vpc-id vpc-0e49exxxxx44 --peer-owner-id 1234567892890
+ (python36) [drivera@scrappy-aws ~]$  aws ec2 create-vpc-peering-connection --vpc-id vpc-0fdf62bxxx6 --peer-vpc-id vpc-0e49exxxxx44 --peer-owner-id 1234567892890
  {
      "VpcPeeringConnection": {
          "AccepterVpcInfo": {
