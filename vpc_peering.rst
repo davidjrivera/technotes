@@ -180,8 +180,8 @@ Overview of results:
 
    da-default.pem  8  kms-key-test-key
  [da@scrap keys]$ ssh ait@5x.xxx.xx0.231
- ait@54.191.110.231's password:
- Last login: Mon Feb 25 21:54:52 2019 from scrap.ucop.edu
+ ait@5x.xxx.xxx.231's password:
+ Last login: Mon Feb 25 21:54:52 2019 from scrap.com
 
        __|  __|_  )
        _|  (     /   Amazon Linux 2 AMI
