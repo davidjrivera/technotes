@@ -70,7 +70,7 @@ How is VPC Peering used:
 - update route on peer 
 ::
 
-peering-update-route-on-peer
+- peering-update-route-on-peer
 
 - While in the account that has VPC2:
  (python36) [drivera@scrappy-aws ~]$  aws ec2 create-route --route-table-id rtb-06c13dxxxxxxxx2b --destination-cidr-block 192.100.1.0/24 --vpc-peering-connection-id "pcx-0de31xxxxxxxx49"
@@ -81,8 +81,7 @@ peering-update-route-on-peer
 
 - Note: this must be ran on the target account that requires the route. Additionally, if you intend to create a full round about  communication where VPC1 can talk to VPC2 and vice-versa. You must update the route on both source and target 
 
-
-So to setup VPC2 to be able to communicate back we do:
+- So to setup VPC2 to be able to communicate back we do:
 
 - While in the account that has VPC1:
  (python36) [drivera@scrappy-aws ~]$  aws ec2 create-route --route-table-id rtblkjh876y897xxxx5yb --destination-cidr-block 10.10.4.0/24 --vpc-peering-connection-id "pcx-0de31xxxxxxxx49"
