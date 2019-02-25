@@ -82,6 +82,8 @@ How is VPC Peering used:
 
 - So to setup VPC2 to be able to communicate back we do:
 ::
+
+
  (python36) [drivera@scrappy-aws ~]$  aws ec2 create-route --route-table-id rtblkjh876y897xxxx5yb --destination-cidr-block 10.10.4.0/24 --vpc-peering-connection-id "pcx-0de31xxxxxxxx49"
   {
     "Return": true
