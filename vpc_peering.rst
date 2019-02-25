@@ -172,8 +172,8 @@ Overview of results:
 ---------------------
 
 - Example: pulling a file from AWS account ait-training, while logged into a server on the AWS account ait-poc utilizing the private IP space
-- We must first ssh into the publi address of the server in the ait-poc account as there is no VPN setup.
-- once we have logged into that server, we will get the file from the server in the ait-training account via the private IP of that server. (account: ait-training     Server: 10.0.0.153)  
+- We must first ssh into the public address of the server in the ait-poc account as there is no VPN setup.
+- once we have logged into that server, we will get the file from the server in the ait-training account via the private IP of the server in the ait-training account. (account: ait-training     Server: 10.0.0.153)  
 - The private IP space for the server in ait-poc is: 192.100.1.191
 ::
 
