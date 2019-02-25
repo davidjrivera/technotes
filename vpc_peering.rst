@@ -26,7 +26,7 @@ How is VPC Peering used:
 - Setting up peering of VPC01 to VPC02
 ::
 
- (python36) [drivera@scrappy-aws ~]$  aws ec2 create-vpc-peering-connection --vpc-id vpc-0fdf62bxxx6 --peer-vpc-id vpc-0e49exxxxx44 --peer-owner-id 1234567892890
+ (python36) [da@scrap ~]$  aws ec2 create-vpc-peering-connection --vpc-id vpc-0fdf62bxxx6 --peer-vpc-id vpc-0e49exxxxx44 --peer-owner-id 1234567892890
  {
      "VpcPeeringConnection": {
          "AccepterVpcInfo": {
@@ -72,7 +72,7 @@ How is VPC Peering used:
 
 
  While in the account that has VPC2:
- (python36) [drivera@scrappy-aws ~]$  aws ec2 create-route --route-table-id rtb-06c13dxxxxxxxx2b --destination-cidr-block 192.100.1.0/24 --vpc-peering-connection-id "pcx-0de31xxxxxxxx49"
+ (python36) [da@scrap ~]$  aws ec2 create-route --route-table-id rtb-06c13dxxxxxxxx2b --destination-cidr-block 192.100.1.0/24 --vpc-peering-connection-id "pcx-0de31xxxxxxxx49"
  {
     "Return": true
  }
@@ -84,7 +84,7 @@ How is VPC Peering used:
 ::
 
 
- (python36) [drivera@scrappy-aws ~]$  aws ec2 create-route --route-table-id rtblkjh876y897xxxx5yb --destination-cidr-block 10.10.4.0/24 --vpc-peering-connection-id "pcx-0de31xxxxxxxx49"
+ (python36) [da@scrap ~]$  aws ec2 create-route --route-table-id rtblkjh876y897xxxx5yb --destination-cidr-block 10.10.4.0/24 --vpc-peering-connection-id "pcx-0de31xxxxxxxx49"
   {
     "Return": true
  }
@@ -96,34 +96,34 @@ Updating Security Groups
 - ingress security group
 ::
 
- (python36) [drivera@scrappy-aws ~]$ aws ec2 authorize-security-group-ingress --group-id sg-0fd4f560815013a9f --protocol tcp  --source-group sg-0f59087a6a82ac871
- (python36) [drivera@scrappy-aws ~]$ aws-whoami
+ (python36) [da@scrap ~]$ aws ec2 authorize-security-group-ingress --group-id sg-0fd4f560815013a9f --protocol tcp  --source-group sg-0f59087a6a82ac871
+ (python36) [da@scrap ~]$ aws-whoami
  {
-    "UserId": "AROAJ2PFDMOSE2JEGS7AY:drivera@ait-poc-OrgAdmin",
+    "UserId": "AROAJ2PFDMOSE2JEGS7AY:da@ait-poc-OrgAdmin",
     "Account": "217985836260",
-    "Arn": "arn:aws:sts::217985836260:assumed-role/OrgAdmin/drivera@ait-poc-OrgAdmin"
+    "Arn": "arn:aws:sts::217985836260:assumed-role/OrgAdmin/da@ait-poc-OrgAdmin"
 
 
 
- (python36) [drivera@scrappy-aws ~]$  aws ec2 authorize-security-group-ingress --group-id sg-0f59087a6a82ac871 --protocol tcp  --source-group sg-0fd4f560815013a9f
- (python36) [drivera@scrappy-aws ~]$ aws-whoami
+ (python36) [da@scrap ~]$  aws ec2 authorize-security-group-ingress --group-id sg-0f59087a6a82ac871 --protocol tcp  --source-group sg-0fd4f560815013a9f
+ (python36) [da@scrap ~]$ aws-whoami
  {
-    "UserId": "AROAJU3BMOJ5H7RDO6GIM:drivera@ait-training-OrgAdmin",
+    "UserId": "AROAJU3BMOJ5H7RDO6GIM:da@ait-training-OrgAdmin",
     "Account": "071826132890",
-    "Arn": "arn:aws:sts::071826132890:assumed-role/OrgAdmin/drivera@ait-training-OrgAdmin"
+    "Arn": "arn:aws:sts::071826132890:assumed-role/OrgAdmin/da@ait-training-OrgAdmin"
  }
- (python36) [drivera@scrappy-aws ~]$
+ (python36) [da@scrap ~]$
 
 
- (python36) [drivera@scrappy-aws ~]$ aws-whoami
+ (python36) [da@scrap ~]$ aws-whoami
  {
-    "UserId": "AROAJU3BMOJ5H7RDO6GIM:drivera@ait-training-OrgAdmin",
+    "UserId": "AROAJU3BMOJ5H7RDO6GIM:da@ait-training-OrgAdmin",
     "Account": "071826132890",
-    "Arn": "arn:aws:sts::071826132890:assumed-role/OrgAdmin/drivera@ait-training-OrgAdmin"
+    "Arn": "arn:aws:sts::071826132890:assumed-role/OrgAdmin/da@ait-training-OrgAdmin"
  } 
 
 
- (python36) [drivera@scrappy-aws ~]$ aws ec2 describe-security-group-references --group-id sg-0f59087a6a82ac871
+ (python36) [da@scrap ~]$ aws ec2 describe-security-group-references --group-id sg-0f59087a6a82ac871
  {
     "SecurityGroupReferenceSet": [
         {
@@ -133,7 +133,7 @@ Updating Security Groups
         }
     ]
 
- (python36) [drivera@scrappy-aws ~]$ aws-assume-role ait-poc-OrgAdmin                                                        (python36) [drivera@scrappy-aws ~]$ aws ec2 describe-security-group-references --group-id sg-0fd4f560815013a9f
+ (python36) [da@scrap ~]$ aws-assume-role ait-poc-OrgAdmin                                                        (python36) [da@scrap ~]$ aws ec2 describe-security-group-references --group-id sg-0fd4f560815013a9f
  {
     "SecurityGroupReferenceSet": [
         {
@@ -151,19 +151,19 @@ Updating Security Groups
 ::
 
 
- (python36) [drivera@scrappy-aws ~]$ aws ec2 authorize-security-group-egress --group-id sg-0fd4f560815013a9f  --ip-permissions IpProtocol=tcp,FromPort=22,ToPort=22,,UserIdGroupPairs=[{GroupId=sg-0f59087a6a82ac871}]
- (python36) [drivera@scrappy-aws ~]$ aws-whoami
+ (python36) [da@scrap ~]$ aws ec2 authorize-security-group-egress --group-id sg-0fd4f560815013a9f  --ip-permissions IpProtocol=tcp,FromPort=22,ToPort=22,,UserIdGroupPairs=[{GroupId=sg-0f59087a6a82ac871}]
+ (python36) [da@scrap ~]$ aws-whoami
  {
-    "UserId": "AROAJ2PFDMOSE2JEGS7AY:drivera@ait-poc-OrgAdmin",
+    "UserId": "AROAJ2PFDMOSE2JEGS7AY:da@ait-poc-OrgAdmin",
     "Account": "217985836260",
-    "Arn": "arn:aws:sts::217985836260:assumed-role/OrgAdmin/drivera@ait-poc-OrgAdmin"
+    "Arn": "arn:aws:sts::217985836260:assumed-role/OrgAdmin/da@ait-poc-OrgAdmin"
  }
- (python36) [drivera@scrappy-aws ~]$ aws-assume-role ait-training-OrgAdmin                                                   (python36) [drivera@scrappy-aws ~]$ aws ec2 authorize-security-group-egress --group-id sg-0f59087a6a82ac871  --ip-permissions IpProtocol=tcp,FromPort=22,ToPort=22,,UserIdGroupPairs=[{GroupId=sg-0fd4f560815013a9f}]
- (python36) [drivera@scrappy-aws ~]$ aws-whoami
+ (python36) [da@scrap ~]$ aws-assume-role ait-training-OrgAdmin                                                   (python36) [da@scrap ~]$ aws ec2 authorize-security-group-egress --group-id sg-0f59087a6a82ac871  --ip-permissions IpProtocol=tcp,FromPort=22,ToPort=22,,UserIdGroupPairs=[{GroupId=sg-0fd4f560815013a9f}]
+ (python36) [da@scrap ~]$ aws-whoami
  {
-    "UserId": "AROAJU3BMOJ5H7RDO6GIM:drivera@ait-training-OrgAdmin",
+    "UserId": "AROAJU3BMOJ5H7RDO6GIM:da@ait-training-OrgAdmin",
     "Account": "071826132890",
-    "Arn": "arn:aws:sts::071826132890:assumed-role/OrgAdmin/drivera@ait-training-OrgAdmin"
+    "Arn": "arn:aws:sts::071826132890:assumed-role/OrgAdmin/da@ait-training-OrgAdmin"
  }
 
 
@@ -178,10 +178,10 @@ Overview of results:
 ::
 
 
- david-key-pair-default.pem  drivera-ait-poc-key-default.pem  ec2-user@52.89.180.58  kms-key-ait-poc
- [drivera@scrappy-aws keys]$ ssh ait@54.191.110.231
+   da-default.pem  8  kms-key-test-key
+ [da@scrap keys]$ ssh ait@5x.xxx.xx0.231
  ait@54.191.110.231's password:
- Last login: Mon Feb 25 21:54:52 2019 from scrappy-aws.ucop.edu
+ Last login: Mon Feb 25 21:54:52 2019 from scrap.ucop.edu
 
        __|  __|_  )
        _|  (     /   Amazon Linux 2 AMI
