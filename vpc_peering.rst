@@ -64,7 +64,7 @@ How is VPC Peering used:
 - accept peering connection from target account:
 ::
 
-aws ec2 accept-vpc-peering-connection --vpc-peering-connection-id "pcx-0de31dxxxxx2b549"
+ aws ec2 accept-vpc-peering-connection --vpc-peering-connection-id "pcx-0de31dxxxxx2b549"
 
 	
 - update route on peer 
