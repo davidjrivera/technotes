@@ -3,6 +3,17 @@ AIT Sprint 9
 
 Learning POC for AWS Transit Gateway
 
+
+Private Data in Codecommit
+--------------------------
+
+account
+  ait-poc
+
+repository
+  https://git-codecommit.us-west-2.amazonaws.com/v1/repos/sprint9_data
+
+
 Goals
 -----
 
@@ -22,7 +33,9 @@ Goals
   - network hub with TGW
   - site-to-site VPN to on-prem datacenter
 
-- develop test cases to validate networking
+- develop test cases to validate networking - see `Private Data in Codecommit`_
+
+  - tgw_testing.rst
 
 - demonstrate trouble shooting techniques
 
