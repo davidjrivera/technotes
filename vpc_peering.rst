@@ -72,7 +72,7 @@ aws ec2 accept-vpc-peering-connection --vpc-peering-connection-id "pcx-0de31dxxx
 
 peering-update-route-on-peer
 
-While in the account that has VPC2:
+- While in the account that has VPC2:
  (python36) [drivera@scrappy-aws ~]$  aws ec2 create-route --route-table-id rtb-06c13dxxxxxxxx2b --destination-cidr-block 192.100.1.0/24 --vpc-peering-connection-id "pcx-0de31xxxxxxxx49"
  {
     "Return": true
@@ -84,7 +84,7 @@ While in the account that has VPC2:
 
 So to setup VPC2 to be able to communicate back we do:
 
-While in the account that has VPC1:
+- While in the account that has VPC1:
  (python36) [drivera@scrappy-aws ~]$  aws ec2 create-route --route-table-id rtblkjh876y897xxxx5yb --destination-cidr-block 10.10.4.0/24 --vpc-peering-connection-id "pcx-0de31xxxxxxxx49"
   {
     "Return": true
@@ -149,7 +149,7 @@ Updating Security Groups
 
 
 - update egress security group
-
+::
 
 
  (python36) [drivera@scrappy-aws ~]$ aws ec2 authorize-security-group-egress --group-id sg-0fd4f560815013a9f  --ip-permissions IpProtocol=tcp,FromPort=22,ToPort=22,,UserIdGroupPairs=[{GroupId=sg-0f59087a6a82ac871}]
