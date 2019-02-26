@@ -35,8 +35,8 @@ Creating a Resource Access Manager resource:
 - The following will creat a Transit Gateway Resource, the ARN listed is the Transit Gateway ARN (well an altered version)
 ::
 
-(python36) [da@scrap ~]$ aws ram create-resource-share --name typc-setup  --resource-arns arn:aws:ec2:us-west-2:xxxxxxxxxxx:transit-gateway/tgw-03e59dafb0e4e761c  --principals xxxxxxxxxxx
-{
+ (python36) [da@scrap ~]$ aws ram create-resource-share --name typc-setup  --resource-arns arn:aws:ec2:us-west-2:xxxxxxxxxxx:transit-gateway/tgw-03e59dafb0e4e761c  --principals xxxxxxxxxxx
+ {
     "resourceShare": {
         "resourceShareArn": "arn:aws:ram:us-west-2:xxxxxxxxxxx:resource-share/ecb493f2-0109-28b6-f0e8",
         "name": "typc-setup",
@@ -46,7 +46,7 @@ Creating a Resource Access Manager resource:
         "creationTime": 1551152448.054,
         "lastUpdatedTime": 1551152448.054
     }
-}
+ } 
 
 
 
@@ -55,8 +55,8 @@ Listing of  Resource Access Manager shares created:
 ---------------------------------------------------
 ::
 
-(python36) [da@scrap ~]$ aws ram get-resource-shares --resource-owner SELF
-{
+ (python36) [da@scrap ~]$ aws ram get-resource-shares --resource-owner SELF
+ {
     "resourceShares": [
         {
             "resourceShareArn": "arn:aws:ram:us-west-2:xxxxxxxxxxx:resource-share/8ab484ba-182b-3907-5ad2",
@@ -83,7 +83,7 @@ Listing of  Resource Access Manager shares created:
             "lastUpdatedTime": 1550641839.16
         }
     ]
-}
+ } 
 
 
 
@@ -93,8 +93,8 @@ Associated Principles:
 ::
 
 
-python36) [da@scrap ~]$ aws ram get-resource-share-associations --association-type PRINCIPAL
-{
+ python36) [da@scrap ~]$ aws ram get-resource-share-associations --association-type PRINCIPAL
+ {
     "resourceShareAssociations": [
         {
             "resourceShareArn": "arn:aws:ram:us-west-2:xxxxxxxxxxx:resource-share/8ab484ba-182b-3907-5ad2",
@@ -123,7 +123,9 @@ Associated Resources:
 ::
 
 
-{
+ (python36) [drivera@scrappy-aws ~]$ aws ram get-resource-share-associations --association-type RESOURCE{
+
+ {
             "resourceShareArn": "arn:aws:ram:us-west-2:xxxxxxxxxxx:resource-share/8ab484ba-182b-3907-5ad2",
             "associatedEntity": "arn:aws:ec2:us-west-2:xxxxxxxxxxx:transit-gateway/tgw-03e59da",
             "associationType": "RESOURCE",
@@ -150,8 +152,8 @@ List Associated and Pending Resource Requests:
 
 ::
 
-(python36) [da@scrap ~]$ aws ram get-resource-share-invitations
-{
+ (python36) [da@scrap ~]$ aws ram get-resource-share-invitations
+ {
     "resourceShareInvitations": [
         {
             "resourceShareInvitationArn": "arn:aws:ram:us-west-2:xxxxxxxxxxx:resource-share-invitation/a0b484ba-18a5-b293-8101",
@@ -172,7 +174,7 @@ List Associated and Pending Resource Requests:
             "status": "PENDING"
         }
     ]
-}
+ }
 
 
 Accepting Invitation:
@@ -181,8 +183,8 @@ Accepting Invitation:
 ::
 - The process of accepting an invitation from a target account
 
-(python36) [da@scrap ~]$ aws ram accept-resource-share-invitation --resource-share-invitation-arn arn:aws:ram:us-west-2:xxxxxxxx:resource-share-invitation/xxxxxx-xxxx-xxxx-xxxx-xxxxxxx
-{
+ (python36) [da@scrap ~]$ aws ram accept-resource-share-invitation --resource-share-invitation-arn arn:aws:ram:us-west-2:xxxxxxxx:resource-share-invitation/xxxxxx-xxxx-xxxx-xxxx-xxxxxxx
+ {
     "resourceShareInvitation": {
         "resourceShareInvitationArn": "arn:aws:ram:us-west-2:xxxxxxxx:resource-share-invitation/d4b493e4-xxxx-4ab1-ac90-f61d3xxxxx",
         "resourceShareName": "tvpc-setup",
