@@ -180,9 +180,10 @@ List Associated and Pending Resource Requests:
 Accepting Invitation:
 ---------------------
 
+- The process of accepting an invitation from a target account
+
 ::
 
-- The process of accepting an invitation from a target account
 
  (python36) [da@scrap ~]$ aws ram accept-resource-share-invitation --resource-share-invitation-arn arn:aws:ram:us-west-2:xxxxxxxx:resource-share-invitation/xxxxxx-xxxx-xxxx-xxxx-xxxxxxx
  {
